@@ -875,9 +875,8 @@ class UberDispatchApp(tk.Tk):
     def open_spline_3d_viewer(self) -> None:
         """Launches the interactive Spline 3D / Three.js WebGL Digital Twin in the default browser."""
         import webbrowser
-        viewer_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "spline_3d_viewer.html")
-        if not os.path.exists(viewer_path):
-            viewer_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "spline_3d_viewer.html")
+        from gui.spline_3d_template import ensure_spline_3d_html
+        viewer_path = ensure_spline_3d_html()
         if os.path.exists(viewer_path):
             webbrowser.open_new_tab(f"file:///{os.path.abspath(viewer_path).replace(os.sep, '/')}")
         else:
