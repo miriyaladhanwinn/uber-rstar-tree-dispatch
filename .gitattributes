@@ -1,0 +1,31 @@
+# =============================================================================
+# GitHub Linguist Language Override Configuration
+# Enforces 100% Python repository language breakdown.
+# =============================================================================
+
+# Disable language detection for all files by default
+* linguist-detectable=false
+
+# Re-enable detection exclusively for Python source files
+*.py linguist-detectable=true
+*.pyw linguist-detectable=true
+*.pyi linguist-detectable=true
+
+# Explicitly mark HTML files as vendored & not detectable
+*.html linguist-detectable=false
+*.html linguist-vendored=true
+*.html linguist-documentation=true
+
+# Explicitly mark Batch scripts as vendored & not detectable
+*.bat linguist-detectable=false
+*.bat linguist-vendored=true
+*.bat linguist-documentation=true
+*.cmd linguist-detectable=false
+*.cmd linguist-vendored=true
+*.sh linguist-detectable=false
+*.sh linguist-vendored=true
+
+# Documentation and metadata overrides
+*.md linguist-documentation=true
+*.json linguist-documentation=true
+*.txt linguist-documentation=true
