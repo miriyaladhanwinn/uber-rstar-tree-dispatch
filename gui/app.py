@@ -181,7 +181,8 @@ class UberDispatchApp(tk.Tk):
         ttk.Button(strip, text="🔍 Zoom In", style="Ghost.TButton", command=lambda: self._adjust_zoom(1.2)).pack(side="left", padx=2)
         ttk.Button(strip, text="🔍 Zoom Out", style="Ghost.TButton", command=lambda: self._adjust_zoom(0.8)).pack(side="left", padx=2)
         ttk.Button(strip, text="↺ Reset View", style="Ghost.TButton", command=self.canvas_map.reset_view).pack(side="left", padx=2)
-        ttk.Button(strip, text="📊 Export CSV Audit", style="Ghost.TButton", command=self.export_csv_audit).pack(side="left", padx=4)
+        ttk.Button(strip, text="🌐 Spline 3D Twin", style="Success.TButton", command=self.open_spline_3d_viewer).pack(side="left", padx=4)
+        ttk.Button(strip, text="📊 Export CSV Audit", style="Ghost.TButton", command=self.export_csv_audit).pack(side="left", padx=2)
         ttk.Button(strip, text="💾 Export JSON Snapshot", style="Ghost.TButton", command=self.export_json_tree).pack(side="left", padx=2)
 
         ttk.Label(
@@ -870,6 +871,17 @@ class UberDispatchApp(tk.Tk):
         self.bench_text.delete("1.0", "end")
         self.bench_text.insert("1.0", report)
         self._log_status("Comparative benchmark completed.")
+
+    def open_spline_3d_viewer(self) -> None:
+        """Launches the interactive Spline 3D / Three.js WebGL Digital Twin in the default browser."""
+        import webbrowser
+        viewer_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "spline_3d_viewer.html")
+        if not os.path.exists(viewer_path):
+            viewer_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "spline_3d_viewer.html")
+        if os.path.exists(viewer_path):
+            webbrowser.open_new_tab(f"file:///{os.path.abspath(viewer_path).replace(os.sep, '/')}")
+        else:
+            messagebox.showinfo("Spline 3D Viewer", "Spline 3D viewer file not found.")
 
     def export_csv_audit(self) -> None:
         if not self.last_matches:

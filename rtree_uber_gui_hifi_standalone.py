@@ -1224,6 +1224,7 @@ class StandaloneApp(tk.Tk):
         tk.Button(side, text="⚡ Find Nearby (Radius Search)", bg="#2563EB", fg="#FFF", font=("Segoe UI", 9, "bold"), relief="flat", command=self.do_radius).pack(fill="x", pady=2)
         tk.Button(side, text="🎯 k-NN Optimal Dispatch (Branch & Bound)", bg="#D97706", fg="#FFF", font=("Segoe UI", 9, "bold"), relief="flat", command=self.do_knn).pack(fill="x", pady=2)
         tk.Button(side, text="🚀 Simulate Trip Lifecycle (Pickup -> Dropoff)", bg="#059669", fg="#FFF", font=("Segoe UI", 9, "bold"), relief="flat", command=self.do_trip).pack(fill="x", pady=2)
+        tk.Button(side, text="🌐 LAUNCH SPLINE 3D DIGITAL TWIN (WebGL)", bg="#0284C7", fg="#FFF", font=("Segoe UI", 9, "bold"), relief="flat", command=self.open_spline_3d).pack(fill="x", pady=2)
         tk.Button(side, text="▶ TOGGLE DYNAMIC GPS AUTOPILOT", bg="#4B5563", fg="#FFF", font=("Segoe UI", 9, "bold"), relief="flat", command=self.toggle_auto).pack(fill="x", pady=2)
         tk.Button(side, text="⚡ Hilbert Bulk Load (1,000 Drivers)", bg="#7C3AED", fg="#FFF", font=("Segoe UI", 9, "bold"), relief="flat", command=self.do_hilbert_bulk).pack(fill="x", pady=2)
 
@@ -1240,6 +1241,17 @@ class StandaloneApp(tk.Tk):
         tk.Label(side, text="Dispatch Log & Algorithmic Telemetry", font=("Segoe UI", 10, "bold"), fg=TEXT_SECONDARY, bg=BG_PANEL).pack(anchor="w", pady=(8, 2))
         self.log = tk.Text(side, height=16, bg=BG_INPUT, fg=TEXT_PRIMARY, font=("Consolas", 9), relief="flat")
         self.log.pack(fill="both", expand=True)
+
+    def open_spline_3d(self):
+        """Launches the interactive Spline 3D / Three.js WebGL Digital Twin in the default browser."""
+        import webbrowser
+        path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "spline_3d_viewer.html")
+        if not os.path.exists(path):
+            path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "gui", "spline_3d_viewer.html")
+        if os.path.exists(path):
+            webbrowser.open_new_tab(f"file:///{os.path.abspath(path).replace(os.sep, '/')}")
+        else:
+            messagebox.showinfo("Spline 3D Viewer", "Spline 3D viewer file not found.")
 
     def reset_fleet(self):
         self.fleet_manager.load_baseline_fleet()
