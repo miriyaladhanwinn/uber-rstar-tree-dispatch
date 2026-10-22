@@ -154,6 +154,16 @@ flowchart LR
 
 ---
 
+## 🌐 Spline 3D Spatial Digital Twin & WebGL Visualizer
+
+In addition to the 2D GIS Command Center, this project introduces a **3D Spatio-Temporal Digital Twin** integrated with Spline 3D and Three.js WebGL:
+- **3D MBR Bounding Volumes:** Visualizes Root (Level 1) and Leaf (Level 0) bounding boxes as translucent 3D floating volumes with real-time wireframes.
+- **Autonomous Fleet Cruise:** 120+ 3D vehicles cruising metropolitan avenues with realistic headlights and status beacons (Green: Available, Amber: Dispatched, Blue: On Trip).
+- **Interactive 3D Dispatch:** Click anywhere on the 3D ground grid to dispatch rider queries, firing animated 3D pulse waves and arc trajectories to the nearest driver.
+- **1-Click Launch:** Accessible directly from the Tkinter GUI via the **"🌐 Spline 3D Twin"** button, or by opening `spline_3d_viewer.html` in any modern web browser.
+
+---
+
 ## 💻 Installation & Quickstart
 
 ### Prerequisites
