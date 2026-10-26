@@ -609,7 +609,8 @@ class RStarTree:
         available_only: bool = False,
         tier_filter: Optional[str] = None
     ) -> Tuple[List[REntry], Dict[str, Any]]:
-        radius_sq = radius * radius
+        # Numerical epsilon tolerance prevents floating-point cancellation on exact tangents
+        radius_sq = (radius * radius) + 1e-9
         matches: List[REntry] = []
         metrics = {
             "total_nodes_visited": 0,

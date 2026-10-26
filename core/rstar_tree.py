@@ -378,7 +378,8 @@ class RStarTree:
         Prunes subtrees where MINDIST(Q, MBR) > radius.
         Returns matched candidates and detailed pruning metrics.
         """
-        radius_sq = radius * radius
+        # Numerical epsilon tolerance prevents floating-point cancellation on exact tangents
+        radius_sq = (radius * radius) + 1e-9
         matches: List[REntry] = []
         metrics = {
             "total_nodes_visited": 0,
