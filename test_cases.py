@@ -962,9 +962,19 @@ def interactive_faculty_menu():
 
 
 if __name__ == "__main__":
-    if len(sys.argv) > 1 and sys.argv[1].lower() in ("--auto", "--all", "-a", "--batch"):
+    if len(sys.argv) > 1 and any(arg in sys.argv[1].lower() for arg in ("--auto", "--all", "-a", "--batch", "--cli", "--terminal", "--tests")):
         success = run_all_faculty_tests()
         sys.exit(0 if success else 1)
     else:
-        run_all_faculty_tests()
-        interactive_faculty_menu()
+        # Standard launch from VS Code: Launch the GUI!
+        print("\n" + "=" * 78)
+        print("  LAUNCHING UBER R*-TREE GUI (FACULTY EVALUATION)")
+        print("  Amrita CSE DSA Lab 3 - Single Data Structure Spatial Architecture")
+        print("=" * 78 + "\n")
+        try:
+            from rtree_uber_gui import launch
+            launch()
+        except Exception as e:
+            print(f"[Warning] GUI launch encountered an issue ({e}). Running terminal test suite:")
+            run_all_faculty_tests()
+            interactive_faculty_menu()
