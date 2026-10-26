@@ -182,6 +182,20 @@ python main.py
 python rtree_uber_gui.py
 ```
 
+### Running the Faculty Evaluation Test Suite (Terminal CLI)
+The project provides a self-contained, zero-dependency interactive test runner executing all 10 nominal, boundary edge, and edge-to-edge cases strictly matching the CSE DSA Lab 3 evaluation rubric:
+
+```bash
+# Run tests interactively (runs all 10 cases + opens faculty menu):
+python run_tests.py
+
+# Or run non-interactively in batch mode:
+python run_tests.py --auto
+
+# Or run via main.py flag:
+python main.py --test
+```
+
 ### Running the Unit Test Suite
 ```bash
 python -m unittest discover -s tests -v
