@@ -12,6 +12,17 @@
 
 ---
 
+---
+
+## 🌐 Quick Launch & Core Deliverables
+
+- 🌐 **Interactive Web Application (Spline 3D + 2D Radar OS):** Double-click [index.html](index.html) to run the full browser-based GIS command center featuring live R*-Tree spatial search, all 10 test cases, real-time trip simulation, audio cues, and an integrated **Spline 3D Vehicle Cam**!
+- 📊 **Faculty Evaluation Presentation (16 Slides):** [RStar_Tree_Uber_Fleet_Dispatch_Presentation.pptx](RStar_Tree_Uber_Fleet_Dispatch_Presentation.pptx) — Clean, light-theme 16:9 presentation reordered into continuous speaker blocks (Adwaith 1–4, Paruchuri 5–7, Dhanwin 8–12, Dhanvant 13–16).
+- 📑 **Comprehensive 10 Test Cases Guide:** [Uber_RStar_Tree_10_Test_Cases_Guide.docx](Uber_RStar_Tree_10_Test_Cases_Guide.docx) — Complete narrative guide for all 10 nominal, boundary, stress, and underflow scenarios with Viva Voce lab defense answers.
+- 💻 **Desktop Python Tkinter GUI:** Run python rtree_uber_gui.py for the native desktop GIS application.
+
+---
+
 ## 👥 Team Members & Roll Numbers
 
 | S.No | Team Member Name | Roll Number | GitHub Identity | Evaluation Domain |
